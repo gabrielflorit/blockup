@@ -1,0 +1,22 @@
+{
+  "name": "blockup",
+  "version": "0.0.0",
+  "description": "bl.ocks helper / generator",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/gabrielflorit/blockup.git"
+  },
+  "keywords": [
+    "bl.ocks"
+  ],
+  "author": "Gabriel Florit",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/gabrielflorit/blockup/issues"
+  },
+  "homepage": "https://github.com/gabrielflorit/blockup#readme"
+}
