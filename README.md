@@ -1,7 +1,7 @@
 # blockup
 
 ```sh
-Usage: blockup <command> [options]
+Usage: blockup <command>
 
 Commands:
   new    setup a new block
