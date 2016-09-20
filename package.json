@@ -3,6 +3,9 @@
   "version": "0.0.0",
   "description": "bl.ocks helper / generator",
   "main": "index.js",
+  "bin": {
+    "blockup": "index.js"
+  },
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1"
   },
@@ -18,5 +21,10 @@
   "bugs": {
     "url": "https://github.com/gabrielflorit/blockup/issues"
   },
-  "homepage": "https://github.com/gabrielflorit/blockup#readme"
+  "homepage": "https://github.com/gabrielflorit/blockup#readme",
+  "dependencies": {
+    "browser-sync": "^2.16.0",
+    "buble": "^0.14.0",
+    "fs-extra": "^0.30.0"
+  }
 }
