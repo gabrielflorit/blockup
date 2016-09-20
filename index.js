@@ -8,7 +8,7 @@ var chalk = require('chalk')
 
 var argv = require('yargs')
 	.usage('Usage: $0 <command>')
-	.command('new', 'setup a new block')
+	.command('new', 'scaffold a new block')
 	.command('serve', 'serve current block')
 
 	.demand(1)

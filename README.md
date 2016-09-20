@@ -4,7 +4,7 @@
 Usage: blockup <command>
 
 Commands:
-  new    setup a new block
+  new    scaffold a new block
   serve  serve current block
 
 Options:
