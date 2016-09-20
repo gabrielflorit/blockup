@@ -2,4 +2,14 @@
 
 ## usage
 
-- `blockup`: creates `index.html` + `index.js` in current directory, starts server, watches for changes
+```sh
+Usage: blockup <command> [options]
+
+Commands:
+  new    setup a new block
+  serve  serve current block
+
+Options:
+  -f, --file  Load a file                                             [required]
+  -h, --help  Show help                                                [boolean]
+```
