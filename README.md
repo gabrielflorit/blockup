@@ -1,7 +1,5 @@
 # blockup
 
-## usage
-
 ```sh
 Usage: blockup <command> [options]
 
