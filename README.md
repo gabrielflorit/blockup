@@ -8,6 +8,5 @@ Commands:
   serve  serve current block
 
 Options:
-  -f, --file  Load a file                                             [required]
   -h, --help  Show help                                                [boolean]
 ```
