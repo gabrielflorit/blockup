@@ -7,14 +7,11 @@ var buble = require('buble')
 var chalk = require('chalk')
 
 var argv = require('yargs')
-	.usage('Usage: $0 <command> [options]')
+	.usage('Usage: $0 <command>')
 	.command('new', 'setup a new block')
 	.command('serve', 'serve current block')
 
-	.alias('f', 'file')
-	.nargs('f', 1)
-	.describe('f', 'Load a file')
-	.demand(1, ['f'])
+	.demand(1)
 
 	.help('h')
 	.alias('h', 'help')
