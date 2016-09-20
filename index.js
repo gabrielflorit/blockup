@@ -33,7 +33,7 @@ const serveBlock = () => {
 	// Watch index.html and reload.
 	bs.watch(path.join(process.cwd(), 'index.html')).on('change', bs.reload)
 
-	// Watch index.es6.js, compile, and reload.
+	// Watch index.js, compile to dist.js, and reload.
 	bs.watch(path.join(process.cwd(), 'index.js'), function (event, file) {
 		if (event === 'change') {
 			var contents = fs.readFileSync(file, { encoding: 'utf8' })
