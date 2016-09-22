@@ -8,5 +8,7 @@ Commands:
   serve  serve current block
 
 Options:
-  -h, --help  Show help                                                [boolean]
+  -h, --help  Show help                                       [boolean]
+
+v0.0.1
 ```
