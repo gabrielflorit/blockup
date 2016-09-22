@@ -5,6 +5,7 @@ var path = require('path')
 var bs = require('browser-sync').create()
 var buble = require('buble')
 var chalk = require('chalk')
+var package = require('./package.json')
 
 var argv = require('yargs')
 	.usage('Usage: $0 <command>')
@@ -15,9 +16,10 @@ var argv = require('yargs')
 
 	.help('h')
 	.alias('h', 'help')
+	.epilog('v'  + package.version)
 	.argv
 
-const newBlock = () => {
+var newBlock = () => {
 
 	console.log(chalk.green('Scaffolding a new block... done.'))
 
@@ -26,19 +28,19 @@ const newBlock = () => {
 
 }
 
-const serveBlock = () => {
+var serveBlock = () => {
 
 	console.log(chalk.green('Serving current block:'))
 
 	// Watch index.html and reload.
 	bs.watch(path.join(process.cwd(), 'index.html')).on('change', bs.reload)
 
-	// Watch index.js, compile to dist.js, and reload.
-	bs.watch(path.join(process.cwd(), 'index.js'), function (event, file) {
+	// Watch main.es6.js, compile to index.js, and reload.
+	bs.watch(path.join(process.cwd(), 'main.es6.js'), function (event, file) {
 		if (event === 'change') {
 			var contents = fs.readFileSync(file, { encoding: 'utf8' })
 			var output = buble.transform(contents)
-			fs.writeFileSync(path.join(process.cwd(), 'dist.js'), output.code)
+			fs.writeFileSync(path.join(process.cwd(), 'index.js'), output.code)
 			bs.reload()
 		}
 	})
