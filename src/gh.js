@@ -1,40 +1,93 @@
+// a0c6d37c9b65863e1417888d755d1fdf0cccb2ee
+
 var GitHub = require('github-api')
+var q = require('d3-queue').queue
+var child = require('child_process')
 
-module.exports = function() {
+function gitInit(callback) {
+	child.exec('git init', function(error, stdout, stderr) {
+		if (!error && stderr) process.stderr.write(stderr), error = new Error('git init failed.')
+		if (!error && stdout) process.stdout.write(stdout)
+		callback(error)
+	})
+}
 
-  console.log('ghing')
+function gitAdd(callback) {
+	child.exec('git add -A', function(error, stdout, stderr) {
+		if (!error && stderr) process.stderr.write(stderr), error = new Error('git add failed.')
+		if (!error && stdout) process.stdout.write(stdout)
+		callback(error)
+	})
+}
 
-  // unauthenticated client
-  var gh = new GitHub()
+function gitCommit(callback) {
+	child.exec("git commit --allow-empty -m 'Initial blockup commit'", function(error, stdout, stderr) {
+		if (!error && stderr) process.stderr.write(stderr), error = new Error('git commit failed.')
+		if (!error && stdout) process.stdout.write(stdout)
+		callback(error)
+	})
+}
 
-  var gist = gh.getGist() // not a gist yet
-  var data = {
-     public: true,
-     description: 'My first gist',
-     files: {
-        'file1.txt': {
-           content: "Aren't gists great!"
-        }
-     }
-  }
+function gitRemoteAdd(gistId, callback) {
+	child.exec('git remote add --track master origin git@gist.github.com:' + gistId + '.git', function(error, stdout, stderr) {
+		if (!error && stderr) process.stderr.write(stderr), error = new Error('git remote failed.')
+		if (!error && stdout) process.stdout.write(stdout)
+		callback(error)
+	})
+}
 
-  gist.create(data)
-    .then(function(httpResponse) {
-       var gistJson = httpResponse.data
+function gitPush(callback) {
+	child.exec('git push -fu origin master', function(error, stdout, stderr) {
+		if (!error && stderr) process.stderr.write(stderr)
+		if (!error && stdout) process.stdout.write(stdout)
+		callback(error)
+	})
+}
 
-       // Callbacks too
-       gist.read(function(err, gist, xhr) {
+function createGist(token, callback) {
 
-         console.log(gist)
-         console.log(xhr)
+	var gh = new GitHub({
+		token: token
+	})
 
-          // if no error occurred then err == null
-          // gistJson == httpResponse.data
-          // xhr == httpResponse
-       })
-    })
-    .catch(function(err) {
-      console.log(err)
-    })
+	var gist = gh.getGist() // not a gist yet
+	var data = {
+			public: true,
+			description: 'My first gist',
+			files: {
+				'file1.txt': {
+					content: "Aren't gists great!"
+				}
+			}
+	}
+
+	gist.create(data)
+		.then(function(res) {
+			callback(null, res.data.id)
+		})
+		.catch(function(err) {
+			callback(err)
+		})
+
+}
+
+module.exports = function(token) {
+
+	q(1)
+		.defer(gitInit)
+		.defer(gitAdd)
+		.defer(gitCommit)
+		.defer(createGist, token)
+		.await(function(error, _, _, _, gistId) {
+
+			q(1)
+				.defer(gitRemoteAdd, gistId)
+				.defer(gitPush)
+				.await(function(error) {
+					if (error) throw error
+					console.log('all done')
+				})
+
+		})
 
 }
