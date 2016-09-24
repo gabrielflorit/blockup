@@ -1,5 +1,3 @@
-// a0c6d37c9b65863e1417888d755d1fdf0cccb2ee
-
 var GitHub = require('github-api')
 var q = require('d3-queue').queue
 var child = require('child_process')
