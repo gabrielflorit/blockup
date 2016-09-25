@@ -3,13 +3,13 @@
 var package = require('./../package.json')
 var newBlock = require('./newBlock.js')
 var serveBlock = require('./serveBlock.js')
-var gh = require('./gh.js')
+var push = require('./push.js')
 
 var argv = require('yargs')
 	.usage('Usage: $0 <command>')
 	.command('new', 'scaffold a new block')
 	.command('serve', 'serve current block')
-	.command('gh', 'gh current block')
+	.command('push', 'push current block')
 
 	.demand(1)
 
@@ -37,9 +37,9 @@ switch (command) {
 
 	}
 
-	case 'gh': {
+	case 'push': {
 
-		gh()
+		push()
 		break
 
 	}
