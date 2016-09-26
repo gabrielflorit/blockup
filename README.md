@@ -4,11 +4,11 @@
 Usage: blockup <command>
 
 Commands:
-  new    scaffold a new block
+  new    scaffold and serve a new block
   serve  serve current block
 
 Options:
   -h, --help  Show help                                       [boolean]
 
-v0.0.1
+v0.0.3
 ```
