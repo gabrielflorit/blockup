@@ -1,5 +1,7 @@
 # blockup
 
+## usage
+
 ```sh
 Usage: blockup <command>
 
@@ -12,3 +14,7 @@ Options:
 
 v0.0.3
 ```
+
+## install
+
+` npm install -g blockup`
