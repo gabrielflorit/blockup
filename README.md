@@ -8,13 +8,13 @@ Scaffold and serve bl.ocks.org gists. Compiles ES6 to ES5.
 Usage: blockup <command>
 
 Commands:
-  new    scaffold and serve a new block
-  serve  serve current block
+  new    scaffold and serve a new block (default if directory is empty)
+  serve  serve current block (default if directory is not empty)
 
 Options:
-  -h, --help  Show help                                       [boolean]
+  -h, --help  Show help                                                [boolean]
 
-v0.0.3
+v0.0.4
 ```
 
 ## install
