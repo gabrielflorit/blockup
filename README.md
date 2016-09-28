@@ -1,6 +1,14 @@
 # blockup
 
-Scaffold and serve bl.ocks.org gists. Compiles ES6 to ES5.
+Scaffold and serve html, specifically focused on bl.ocks. Go from idea to bl.ock from the comfort of your own text editor.
+
+## why?
+
+bl.ocks is a great tool! But using the Gist site as a text editor is no fun. This little tool tries to help making blocks just a tiny bit easier:
+- one command blockup scaffolds and serves a new block
+- you can write ES6 and it will get compiled down to ES5
+
+That's it for now. It probably won't grow beyond this. I just want a tool that will let me create a block as fast as possible.
 
 ## usage
 
