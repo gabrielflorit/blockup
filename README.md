@@ -18,3 +18,7 @@ v0.0.3
 ## install
 
 ` npm install -g blockup`
+
+## related
+
+- https://github.com/1wheel/gist-snap by [1wheel](https://github.com/1wheel): snapshot thumbnails for [bl.ocks.org](http://bl.ocks.org/)
