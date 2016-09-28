@@ -7,10 +7,10 @@ var fs = require('fs')
 
 var argv = require('yargs')
 	.usage('Usage: $0 <command>')
-	.command('new', 'scaffold and serve a new block')
-	.command('serve', 'serve current block')
+	.command('new', 'scaffold and serve a new block (default if directory is empty)')
+	.command('serve', 'serve current block (default if directory is not empty)')
 
-	// .demand(1)
+	.demand(0, 'asdf')
 
 	.help('h')
 	.alias('h', 'help')
