@@ -26,7 +26,7 @@ Options:
 v0.0.4
 ```
 
-`blockup` will create two files: `index.html` and `script.js`. Write JS in `script.js`. On save, blockup will compile, uglify, minify and inline the JS to the `<script id="script"></script>` tag in `index.html`. So make sure not to delete that tag!
+`blockup` creates two files: `index.html` and `script.js`. Put your JS in `script.js`. On save, blockup will compile, uglify, minify and inline JS to the `<script id="script"></script>` tag in `index.html`. So make sure not to delete that tag!
 
 ## install
 
