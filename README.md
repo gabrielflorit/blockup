@@ -23,7 +23,7 @@ Commands:
 Options:
   -h, --help  Show help                                                [boolean]
 
-v0.0.4
+v1.0.0
 ```
 
 `blockup` creates two files: `index.html` and `script.js`. Put your JS in `script.js`. On save, blockup will compile, uglify, minify and inline JS to the `<script id="script"></script>` tag in `index.html`. So make sure not to delete that tag!
