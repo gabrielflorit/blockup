@@ -4,11 +4,11 @@ Scaffold and serve html, specifically focused on [bl.ocks](https://bl.ocks.org/)
 
 ## why?
 
-[bl.ocks](https://bl.ocks.org/) is a great tool! But using the [Gist site](https://gist.github.com/) as a text editor is no fun. This little tool tries to help making blocks just a tiny bit easier:
+[bl.ocks](https://bl.ocks.org/) is a great tool! But using the [Gist site](https://gist.github.com/) as a text editor is no fun. This little tool helps you make blocks just a tiny bit faster:
 - one command, `blockup`, scaffolds and serves a new block
 - write ES6 and it will get compiled down to ES5
 
-That's it for now. It probably won't grow beyond this. I just want a tool that will let me create a block as fast as possible (and that means using ES6 because its syntax saves me time).
+That's it for now. It probably won't grow beyond this. But if you have an idea, [I'd like to hear it](https://github.com/gabrielflorit/blockup/issues)!
 
 ## usage
 
