@@ -22,3 +22,4 @@ v0.0.3
 ## related
 
 - https://github.com/1wheel/gist-snap by [1wheel](https://github.com/1wheel): snapshot thumbnails for [bl.ocks.org](http://bl.ocks.org/)
+- https://github.com/mbostock/gistup by [mbostock](https://github.com/mbostock): create a gist from the command line
