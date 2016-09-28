@@ -28,7 +28,7 @@ v0.0.4
 
 `blockup` creates two files: `index.html` and `script.js`. Put your JS in `script.js`. On save, blockup will compile, uglify, minify and inline JS to the `<script id="script"></script>` tag in `index.html`. So make sure not to delete that tag!
 
-## great! but is there a way to upload my files to gist from the command line?
+## great! but is there a way to upload to gist from the command line?
 
 Yes! See [gistup](https://github.com/mbostock/gistup).
 
