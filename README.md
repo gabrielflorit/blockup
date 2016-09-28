@@ -1,5 +1,7 @@
 # blockup
 
+Scaffold and serve bl.ocks.org gists. Compiles ES6 to ES5.
+
 ## usage
 
 ```sh
