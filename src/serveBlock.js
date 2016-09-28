@@ -3,6 +3,8 @@ var path = require('path')
 var bs = require('browser-sync').create()
 var buble = require('buble')
 var chalk = require('chalk')
+var UglifyJS = require('uglify-js')
+var cheerio = require('cheerio')
 
 module.exports = function() {
 
@@ -11,13 +13,25 @@ module.exports = function() {
 	// Watch index.html and reload.
 	bs.watch(path.join(process.cwd(), 'index.html')).on('change', bs.reload)
 
-	// Watch main.es6.js, compile to index.js, and reload.
-	bs.watch(path.join(process.cwd(), 'main.es6.js'), function (event, file) {
+	// Watch script.js, compile, uglify, inline, and reload.
+	bs.watch(path.join(process.cwd(), 'script.js'), function (event, file) {
 		if (event === 'change') {
+
 			var contents = fs.readFileSync(file, { encoding: 'utf8' })
 			var output = buble.transform(contents)
-			fs.writeFileSync(path.join(process.cwd(), 'index.js'), output.code)
+			var uglified = UglifyJS.minify(output.code, { fromString: true })
+			var html = fs.readFileSync(path.join(process.cwd(), 'index.html'), {
+				encoding: 'utf8'
+			})
+
+			var $ = cheerio.load(html)
+
+			$('#script').text(uglified.code)
+
+			fs.writeFileSync(path.join(process.cwd(), 'index.html'), $.html())
+
 			bs.reload()
+
 		}
 	})
 
