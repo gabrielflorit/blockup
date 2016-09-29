@@ -7,6 +7,7 @@ Scaffold and serve html, specifically focused on [bl.ocks](https://bl.ocks.org/)
 [bl.ocks](https://bl.ocks.org/) is a great tool! But using the [Gist site](https://gist.github.com/) as a text editor is no fun. This little tool helps you make blocks just a tiny bit faster:
 - one command, `blockup`, scaffolds and serves a new block
 - write ES6 and it gets compiled down to ES5
+- write [Stylus](http://stylus-lang.com/) and it gets compiled to CSS
 - browser reloads on file change
 
 That's it for now. It probably won't grow beyond this. But if you have an idea, [I'd like to hear it](https://github.com/gabrielflorit/blockup/issues)!
@@ -25,8 +26,6 @@ Options:
 
 v1.0.0
 ```
-
-`blockup` creates two files: `index.html` and `script.js`. Put your JS in `script.js`. On save, blockup will compile, uglify, minify and inline JS to the `<script id="script"></script>` tag in `index.html`. So make sure not to delete that tag!
 
 ## great! but is there a way to upload to gist from the command line?
 
