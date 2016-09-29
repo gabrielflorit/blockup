@@ -12,6 +12,8 @@ var plumber = require('gulp-plumber')
 var reportError = require('./reportError.js')
 var uglify = require('gulp-uglify')
 var chalk = require('chalk')
+var stylus = require('gulp-stylus')
+var autoprefixer = require('gulp-autoprefixer')
 
 var argv = require('yargs')
 	.usage('Usage: $0 <command>')
@@ -32,6 +34,7 @@ gulp.task('watch', function() {
 
 	gulp.watch('index.html', { cwd: process.cwd() }, bs.reload)
 	gulp.watch('script.js', { cwd: process.cwd() }, ['script'])
+	gulp.watch('style.styl', { cwd: process.cwd() }, ['stylus'])
 
 })
 
@@ -56,6 +59,19 @@ gulp.task('script', function() {
 		.pipe(buble())
 		.pipe(uglify())
 		.pipe(rename('dist.js'))
+		.pipe(gulp.dest('.'))
+		.pipe(bs.reload({ stream: true }))
+
+})
+
+// Compile and reload stylus.
+gulp.task('stylus', function() {
+
+	return gulp.src(path.join(process.cwd(), 'style.styl'))
+		.pipe(plumber({ errorHandler: reportError }))
+		.pipe(stylus())
+		.pipe(autoprefixer())
+		.pipe(rename('dist.css'))
 		.pipe(gulp.dest('.'))
 		.pipe(bs.reload({ stream: true }))
 
