@@ -1,9 +1,17 @@
 #!/usr/bin/env node
 
 var pakage = require('./../package.json')
+var path = require('path')
 var newBlock = require('./newBlock.js')
-var serveBlock = require('./serveBlock.js')
 var fs = require('fs')
+var gulp = require('gulp')
+var bs = require('browser-sync').create()
+var rename = require('gulp-rename')
+var buble = require('gulp-buble')
+var plumber = require('gulp-plumber')
+var reportError = require('./reportError.js')
+var uglify = require('gulp-uglify')
+var chalk = require('chalk')
 
 var argv = require('yargs')
 	.usage('Usage: $0 <command>')
@@ -16,6 +24,48 @@ var argv = require('yargs')
 	.alias('h', 'help')
 	.epilog('v'  + pakage.version)
 	.argv
+
+gulp.task('default', ['watch', 'serve'])
+
+// Watch index.html and script.js.
+gulp.task('watch', function() {
+
+	gulp.watch('index.html', { cwd: process.cwd() }, bs.reload)
+	gulp.watch('script.js', { cwd: process.cwd() }, ['script'])
+
+})
+
+// Start Browsersync.
+gulp.task('serve', function() {
+
+	bs.init({
+		open: false,
+		server: {
+			baseDir: process.cwd(),
+			index: 'index.html'
+		}
+	})
+
+})
+
+// Compile, uglify, and reload JS.
+gulp.task('script', function() {
+
+	return gulp.src(path.join(process.cwd(), 'script.js'))
+		.pipe(plumber({ errorHandler: reportError }))
+		.pipe(buble())
+		.pipe(uglify())
+		.pipe(rename('dist.js'))
+		.pipe(gulp.dest('.'))
+		.pipe(bs.reload({ stream: true }))
+
+})
+
+const serveBlock = () => {
+
+	console.log(chalk.green('Serving current block:'))
+	gulp.start('default')
+}
 
 var command = argv._[0]
 
