@@ -1,1 +1,1 @@
-// Write your code here.
+// Write your JS here.
