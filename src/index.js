@@ -24,7 +24,7 @@ var argv = require('yargs')
 
 	.help('h')
 	.alias('h', 'help')
-	.epilog('v'  + pakage.version)
+	.version()
 	.argv
 
 gulp.task('default', ['watch', 'serve'])

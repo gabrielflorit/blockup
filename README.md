@@ -23,8 +23,7 @@ Commands:
 
 Options:
   -h, --help  Show help                                                [boolean]
-
-v1.0.0
+  --version   Show version number                                      [boolean]
 ```
 
 ## great! but is there a way to upload to gist from the command line?
