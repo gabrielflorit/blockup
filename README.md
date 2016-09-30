@@ -2,7 +2,8 @@
 
 Scaffold and serve html, specifically focused on [bl.ocks](https://bl.ocks.org/). Go from idea to block from the comfort of your own text editor.
 
-![screenshot](https://cloud.githubusercontent.com/assets/370976/18976331/1e839440-867f-11e6-8be9-c066f9d3ce1e.png)
+<p><img src="https://cloud.githubusercontent.com/assets/370976/18977397/ef571738-8687-11e6-99c5-e0398ce06248.png" alt="screenshot" style="max-width: 550px" /></p>
+
 ## why?
 
 [bl.ocks](https://bl.ocks.org/) is a great tool! But using the [Gist site](https://gist.github.com/) as a text editor is no fun. This little tool helps you make blocks just a tiny bit faster:
