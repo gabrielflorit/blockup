@@ -2,7 +2,7 @@
 
 Scaffold and serve html, specifically focused on [bl.ocks](https://bl.ocks.org/). Go from idea to block from the comfort of your own text editor.
 
-<p><img src="https://cloud.githubusercontent.com/assets/370976/18977397/ef571738-8687-11e6-99c5-e0398ce06248.png" alt="screenshot" style="max-width: 550px" /></p>
+<p><img src="https://cloud.githubusercontent.com/assets/370976/18977397/ef571738-8687-11e6-99c5-e0398ce06248.png" width=550 alt="screenshot" style="max-width: 100%" /></p>
 
 ## why?
 
