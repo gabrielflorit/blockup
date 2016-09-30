@@ -1,1 +1,1 @@
-# block
+Histogram of a normal distribution
