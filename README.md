@@ -2,7 +2,7 @@
 
 Scaffold and serve html, specifically focused on [bl.ocks](https://bl.ocks.org/). Go from idea to block from the comfort of your own text editor.
 
-<p><img src="https://cloud.githubusercontent.com/assets/370976/18977397/ef571738-8687-11e6-99c5-e0398ce06248.png" width=550 alt="screenshot" style="max-width: 100%" /></p>
+![demo](https://cloud.githubusercontent.com/assets/370976/19009608/acde643a-8743-11e6-9656-d49e4448c2b1.gif)
 
 ## why?
 
@@ -11,6 +11,7 @@ Scaffold and serve html, specifically focused on [bl.ocks](https://bl.ocks.org/)
 - write ES6 and it gets compiled down to ES5
 - write [Stylus](http://stylus-lang.com/) and it gets compiled to CSS (because you have a [finite number](http://keysleft.com/) of keystrokes)
 - browser reloads on file change
+- errors during compilation pop up in notification bar
 
 That's it for now. It probably won't grow beyond this. But if you have an idea, [I'd like to hear it](https://github.com/gabrielflorit/blockup/issues)!
 
