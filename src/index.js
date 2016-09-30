@@ -46,7 +46,8 @@ gulp.task('serve', function() {
 		server: {
 			baseDir: process.cwd(),
 			index: 'index.html'
-		}
+		},
+		notify: false,
 	})
 
 })
