@@ -43,7 +43,6 @@ gulp.task('watch', function() {
 gulp.task('serve', function() {
 
 	bs.init({
-		open: false,
 		server: {
 			baseDir: process.cwd(),
 			index: 'index.html'
