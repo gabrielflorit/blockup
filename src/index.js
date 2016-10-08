@@ -79,7 +79,40 @@ gulp.task('stylus', function() {
 
 })
 
+/**
+ * Helper function that checks if a file exists in the current working directory.
+ *
+ * @param {String} filename The file to check
+ * @return {Boolean} true if the file exists, false otherwise
+ */
+const fileExists = (filename) => {
+	try {
+		return fs.lstatSync(path.join(process.cwd(), filename)).isFile();
+	} catch (e) {
+		return false;
+	}
+}
+
+/**
+ * Checks for existence of thumbnail.png and preview.png|jpg and outputs a
+ * warning message if they are not found. See http://bl.ocks.org/-/about.
+ *
+ * @return {void}
+ */
+const checkMissingFiles = () => {
+	// check for thumbnail files
+	if (!fileExists('thumbnail.png')) {
+		console.log(chalk.dim('Warning: Did not find thumbnail.png. Expected a 230x120 image.'))
+	}
+
+	if (!fileExists('preview.png') && !fileExists('preview.jpg')) {
+		console.log(chalk.dim('Warning: Did not find preview.png or preview.jpg. Expected a 960x500 image.'))
+	}
+}
+
+
 const serveBlock = () => {
+	checkMissingFiles();
 
 	console.log(chalk.green('Serving current block:'))
 	gulp.start('default')
