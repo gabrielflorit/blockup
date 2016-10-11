@@ -14,6 +14,7 @@ var uglify = require('gulp-uglify')
 var chalk = require('chalk')
 var stylus = require('gulp-stylus')
 var autoprefixer = require('gulp-autoprefixer')
+var sourcemaps = require('gulp-sourcemaps');
 var cleanCSS = require('gulp-clean-css')
 
 var argv = require('yargs')
@@ -57,8 +58,10 @@ gulp.task('script', function() {
 
 	return gulp.src(path.join(process.cwd(), 'script.js'))
 		.pipe(plumber({ errorHandler: reportError }))
+		.pipe(sourcemaps.init())
 		.pipe(buble())
 		.pipe(uglify())
+		.pipe(sourcemaps.write())
 		.pipe(rename('dist.js'))
 		.pipe(gulp.dest('.'))
 		.pipe(bs.reload({ stream: true }))
