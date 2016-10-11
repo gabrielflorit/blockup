@@ -14,7 +14,7 @@ var uglify = require('gulp-uglify')
 var chalk = require('chalk')
 var stylus = require('gulp-stylus')
 var autoprefixer = require('gulp-autoprefixer')
-var sourcemaps = require('gulp-sourcemaps');
+var sourcemaps = require('gulp-sourcemaps')
 var cleanCSS = require('gulp-clean-css')
 
 var argv = require('yargs')
