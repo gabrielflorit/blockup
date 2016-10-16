@@ -23,7 +23,7 @@ function checkFile(filenames, missingMessage) {
 	}
 
 	console.log(chalk.red(`${indent}✖ ${filenames.join(' or ')}${missingMessage ?
-    `. ${missingMessage}` : ''}`))
+		`. ${missingMessage}` : ''}`))
 	return false;
 }
 
@@ -45,7 +45,7 @@ module.exports = function checkMissingFiles() {
 		anyMissing | !checkFile(file.filenames, file.missingMessage),
 		false);
 
-  console.log();
+	console.log();
 
 	return isMissingFiles;
 }

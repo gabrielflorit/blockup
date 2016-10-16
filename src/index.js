@@ -109,7 +109,7 @@ switch (command) {
 
 	}
 
-  // Check for expected block files
+	// Check for expected block files
 	case 'check': {
 
 		checkMissingFiles()
