@@ -12,6 +12,8 @@ Scaffold and serve html, specifically focused on [bl.ocks](https://bl.ocks.org/)
 - write [Stylus](http://stylus-lang.com/) and it gets compiled to CSS (because you have a [finite number](http://keysleft.com/) of keystrokes)
 - browser reloads on file change
 - errors during compilation pop up in notification bar
+- check for missing expected files with `blockup check`
+- publish directly to gist with `blockup publish`
 
 That's it for now. It probably won't grow beyond this. But if you have an idea, [I'd like to hear it](https://github.com/gabrielflorit/blockup/issues)!
 
@@ -21,8 +23,10 @@ That's it for now. It probably won't grow beyond this. But if you have an idea, 
 Usage: blockup <command>
 
 Commands:
-  new    scaffold and serve a new block (default if directory is empty)
-  serve  serve current block (default if directory is not empty)
+  new      scaffold and serve a new block (default if directory is empty)
+  serve    serve current block (default if directory is not empty)
+  check    check if any expected files are missing
+  publish  publish this block as a gist via gistup
 
 Options:
   -h, --help  Show help                                                [boolean]
@@ -31,7 +35,7 @@ Options:
 
 ## great! but is there a way to upload to gist from the command line?
 
-Yes! See [gistup](https://github.com/mbostock/gistup).
+Yes! You can use the built-in command `blockup publish` for most use cases. If you need something more configurable, you can also try using [gistup](https://github.com/mbostock/gistup) directly.
 
 ## install
 

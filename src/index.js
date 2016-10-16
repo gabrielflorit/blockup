@@ -1,6 +1,5 @@
 #!/usr/bin/env node
 
-var pakage = require('./../package.json')
 var path = require('path')
 var newBlock = require('./newBlock.js')
 var fs = require('fs')
@@ -16,10 +15,15 @@ var stylus = require('gulp-stylus')
 var autoprefixer = require('gulp-autoprefixer')
 var cleanCSS = require('gulp-clean-css')
 
+var checkMissingFiles = require('./checkMissingFiles');
+var publish = require('./publish');
+
 var argv = require('yargs')
 	.usage('Usage: $0 <command>')
 	.command('new', 'scaffold and serve a new block (default if directory is empty)')
 	.command('serve', 'serve current block (default if directory is not empty)')
+	.command('check', 'check if any expected files are missing')
+	.command('publish', 'publish this block as a gist via gistup')
 
 	.demand(0, 'asdf')
 
@@ -79,41 +83,7 @@ gulp.task('stylus', function() {
 
 })
 
-/**
- * Helper function that checks if a file exists in the current working directory.
- *
- * @param {String} filename The file to check
- * @return {Boolean} true if the file exists, false otherwise
- */
-const fileExists = (filename) => {
-	try {
-		return fs.lstatSync(path.join(process.cwd(), filename)).isFile();
-	} catch (e) {
-		return false;
-	}
-}
-
-/**
- * Checks for existence of thumbnail.png and preview.png|jpg and outputs a
- * warning message if they are not found. See http://bl.ocks.org/-/about.
- *
- * @return {void}
- */
-const checkMissingFiles = () => {
-	// check for thumbnail files
-	if (!fileExists('thumbnail.png')) {
-		console.log(chalk.dim('Warning: Did not find thumbnail.png. Expected a 230x120 image.'))
-	}
-
-	if (!fileExists('preview.png') && !fileExists('preview.jpg')) {
-		console.log(chalk.dim('Warning: Did not find preview.png or preview.jpg. Expected a 960x500 image.'))
-	}
-}
-
-
 const serveBlock = () => {
-	checkMissingFiles();
-
 	console.log(chalk.green('Serving current block:'))
 	gulp.start('default')
 }
@@ -122,6 +92,7 @@ var command = argv._[0]
 
 switch (command) {
 
+	// Create a new block and start the dev server
 	case 'new': {
 
 		newBlock()
@@ -130,9 +101,26 @@ switch (command) {
 
 	}
 
+	// Start the dev server
 	case 'serve': {
 
 		serveBlock()
+		break
+
+	}
+
+  // Check for expected block files
+	case 'check': {
+
+		checkMissingFiles()
+		break
+
+	}
+
+	// Publish the block via gistup. Performs a few safety checks first.
+	case 'publish': {
+
+		publish()
 		break
 
 	}
