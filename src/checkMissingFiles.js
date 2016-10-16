@@ -4,10 +4,10 @@ const chalk = require('chalk');
 /**
  * Helper to output whether a message for whether or not a file was missing.
  *
- * {String|String[]} filenames The filenames to check existence of
- * {String} [missingMessage] The message that is appended to the
+ * @param {String|String[]} filenames The filenames to check existence of
+ * @param {String} [missingMessage] The message that is appended to the
  *    filenames in the output log message when a file is missing.
- * return {Boolean} true if the file was there, false otherwise
+ * @return {Boolean} true if the file was there, false otherwise
  */
 function checkFile(filenames, missingMessage) {
 	if (!Array.isArray(filenames)) {
@@ -16,12 +16,14 @@ function checkFile(filenames, missingMessage) {
 	const indent = '  ';
 
 	for (const filename of filenames) {
+			// one of the lisetd files exists
 			if (fileExists(filename)) {
 				console.log(chalk.green(`${indent}✔ ${filename}`))
 				return true;
 			}
 	}
 
+	// the file(s) were not found.
 	console.log(chalk.red(`${indent}✖ ${filenames.join(' or ')}${missingMessage ?
 		`. ${missingMessage}` : ''}`))
 	return false;

@@ -56,6 +56,9 @@ function interactiveCheckMissingFiles(resolve, reject) {
 	}
 }
 
+/**
+ * Check if the current directory is a git repo already and abort if so
+ */
 function checkForGitRepo(resolve, reject) {
 	// check if we are in a git repo
 	if (fileExists('.git')) {
@@ -66,6 +69,9 @@ function checkForGitRepo(resolve, reject) {
 	}
 }
 
+/**
+ * Ask the user to enter a title for the block
+ */
 function promptForBlockTitle(resolve, reject) {
 	const questions = [{
 		type: 'input',
@@ -78,6 +84,10 @@ function promptForBlockTitle(resolve, reject) {
 	});
 }
 
+/**
+ * Use gistup to publish the block with the specified title. If no title is provided,
+ * gistup does not set the `description` flag.
+ */
 function gistup(title, resolve, reject) {
 	const gistupPath = path.join(__dirname, '../node_modules/gistup/bin/gistup');
 	const gistupArgs = title ? `--description "${title}"` : '';
