@@ -37,6 +37,7 @@
     "gulp-stylus": "^2.5.0",
     "gulp-uglify": "^2.0.0",
     "gulp-util": "^3.0.7",
+    "inquirer": "^1.2.2",
     "uglify-js": "^2.7.3",
     "yargs": "^5.0.0"
   }
