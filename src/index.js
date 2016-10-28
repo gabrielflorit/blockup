@@ -1,6 +1,5 @@
 #!/usr/bin/env node
 
-var pakage = require('./../package.json')
 var path = require('path')
 var newBlock = require('./newBlock.js')
 var fs = require('fs')
@@ -17,10 +16,15 @@ var autoprefixer = require('gulp-autoprefixer')
 var sourcemaps = require('gulp-sourcemaps')
 var cleanCSS = require('gulp-clean-css')
 
+var checkMissingFiles = require('./checkMissingFiles');
+var publish = require('./publish');
+
 var argv = require('yargs')
 	.usage('Usage: $0 <command>')
 	.command('new', 'scaffold and serve a new block (default if directory is empty)')
 	.command('serve', 'serve current block (default if directory is not empty)')
+	.command('check', 'check if any expected files are missing')
+	.command('publish', 'publish this block as a gist via gistup')
 
 	.demand(0, 'asdf')
 
@@ -83,7 +87,6 @@ gulp.task('stylus', function() {
 })
 
 const serveBlock = () => {
-
 	console.log(chalk.green('Serving current block:'))
 	gulp.start('default')
 }
@@ -92,6 +95,7 @@ var command = argv._[0]
 
 switch (command) {
 
+	// Create a new block and start the dev server
 	case 'new': {
 
 		newBlock()
@@ -100,9 +104,26 @@ switch (command) {
 
 	}
 
+	// Start the dev server
 	case 'serve': {
 
 		serveBlock()
+		break
+
+	}
+
+	// Check for expected block files
+	case 'check': {
+
+		checkMissingFiles()
+		break
+
+	}
+
+	// Publish the block via gistup. Performs a few safety checks first.
+	case 'publish': {
+
+		publish()
 		break
 
 	}
