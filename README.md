@@ -45,3 +45,8 @@ Yes! You can use the built-in command `blockup publish` for most use cases. If y
 
 - https://github.com/1wheel/gist-snap: snapshot thumbnails for [bl.ocks.org](http://bl.ocks.org/)
 - https://github.com/mbostock/gistup: create a gist from the command line
+
+## contributors
+
+- https://github.com/gabrielflorit/
+- https://github.com/pbeshai
