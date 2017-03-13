@@ -6,7 +6,7 @@ var fs = require('fs')
 var gulp = require('gulp')
 var bs = require('browser-sync').create()
 var rename = require('gulp-rename')
-var buble = require('gulp-buble')
+var babel = require('gulp-babel')
 var plumber = require('gulp-plumber')
 var reportError = require('./reportError.js')
 var uglify = require('gulp-uglify')
@@ -63,7 +63,11 @@ gulp.task('script', function() {
 	return gulp.src(path.join(process.cwd(), 'script.js'))
 		.pipe(plumber({ errorHandler: reportError }))
 		.pipe(sourcemaps.init())
-		.pipe(buble())
+		.pipe(babel({
+			presets: ['env', 'stage-1'].map(function(v) {
+				return require.resolve('babel-preset-' + v)
+			}),
+		}))
 		.pipe(uglify())
 		.pipe(sourcemaps.write())
 		.pipe(rename('dist.js'))
