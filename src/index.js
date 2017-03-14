@@ -9,10 +9,12 @@ var rename = require('gulp-rename')
 var babel = require('gulp-babel')
 var plumber = require('gulp-plumber')
 var reportError = require('./reportError.js')
+var uglify = require('gulp-uglify')
 var chalk = require('chalk')
 var stylus = require('gulp-stylus')
 var autoprefixer = require('gulp-autoprefixer')
 var sourcemaps = require('gulp-sourcemaps')
+var cleanCSS = require('gulp-clean-css')
 
 var checkMissingFiles = require('./checkMissingFiles');
 var publish = require('./publish');
@@ -66,6 +68,7 @@ gulp.task('script', function() {
 				return require.resolve('babel-preset-' + v)
 			}),
 		}))
+		.pipe(uglify())
 		.pipe(sourcemaps.write())
 		.pipe(rename('dist.js'))
 		.pipe(gulp.dest('.'))
@@ -80,6 +83,7 @@ gulp.task('stylus', function() {
 		.pipe(plumber({ errorHandler: reportError }))
 		.pipe(stylus())
 		.pipe(autoprefixer())
+		.pipe(cleanCSS())
 		.pipe(rename('dist.css'))
 		.pipe(gulp.dest('.'))
 		.pipe(bs.reload({ stream: true }))
