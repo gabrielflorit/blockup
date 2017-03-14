@@ -49,4 +49,5 @@ Yes! You can use the built-in command `blockup publish` for most use cases. If y
 ## contributors
 
 - https://github.com/gabrielflorit/
-- https://github.com/pbeshai
+- https://github.com/pbeshai/
+- https://github.com/russellgoldenberg/
