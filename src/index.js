@@ -57,7 +57,7 @@ gulp.task('serve', function() {
 
 })
 
-// Compile, uglify, and reload JS.
+// Compile and reload JS.
 gulp.task('script', function() {
 
 	return gulp.src(path.join(process.cwd(), 'script.js'))

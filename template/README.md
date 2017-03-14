@@ -1,1 +1,1 @@
-Histogram of a normal distribution
+[Made with blockup](https://github.com/gabrielflorit/blockup)
