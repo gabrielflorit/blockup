@@ -13,7 +13,6 @@ var chalk = require('chalk')
 var stylus = require('gulp-stylus')
 var autoprefixer = require('gulp-autoprefixer')
 var sourcemaps = require('gulp-sourcemaps')
-var cleanCSS = require('gulp-clean-css')
 
 var checkMissingFiles = require('./checkMissingFiles');
 var publish = require('./publish');
@@ -81,7 +80,6 @@ gulp.task('stylus', function() {
 		.pipe(plumber({ errorHandler: reportError }))
 		.pipe(stylus())
 		.pipe(autoprefixer())
-		.pipe(cleanCSS())
 		.pipe(rename('dist.css'))
 		.pipe(gulp.dest('.'))
 		.pipe(bs.reload({ stream: true }))
