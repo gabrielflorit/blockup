@@ -53,6 +53,7 @@ gulp.task('serve', function() {
 			index: 'index.html'
 		},
 		notify: false,
+		ghostMode: false,
 	})
 
 })
