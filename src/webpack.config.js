@@ -10,9 +10,12 @@ module.exports = {
 				use: {
 					loader: 'babel-loader',
 					options: {
-						presets: ['env'].map(function(v) {
-							return require.resolve('babel-preset-' + v)
-						}),
+						presets: [
+							require.resolve('babel-preset-env'),
+						],
+						plugins: [
+							require.resolve('babel-plugin-transform-object-rest-spread'),
+						],
 					},
 				},
 			},

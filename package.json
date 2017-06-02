@@ -25,6 +25,7 @@
   "dependencies": {
     "babel-core": "^6.24.0",
     "babel-loader": "^7.0.0",
+    "babel-plugin-transform-object-rest-spread": "^6.23.0",
     "babel-preset-env": "^1.2.1",
     "browser-sync": "^2.16.0",
     "chalk": "^1.1.3",
