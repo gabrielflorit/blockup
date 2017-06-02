@@ -6,15 +6,15 @@ var fs = require('fs')
 var gulp = require('gulp')
 var bs = require('browser-sync').create()
 var rename = require('gulp-rename')
-var babel = require('gulp-babel')
 var plumber = require('gulp-plumber')
 var reportError = require('./reportError.js')
-var uglify = require('gulp-uglify')
 var chalk = require('chalk')
 var stylus = require('gulp-stylus')
 var autoprefixer = require('gulp-autoprefixer')
-var sourcemaps = require('gulp-sourcemaps')
 var cleanCSS = require('gulp-clean-css')
+var webpack = require('webpack')
+var webpackStream = require('webpack-stream')
+var webpackConfig = require('./webpack.config.js')
 
 var checkMissingFiles = require('./checkMissingFiles');
 var publish = require('./publish');
@@ -63,14 +63,10 @@ gulp.task('script', function() {
 
 	return gulp.src(path.join(process.cwd(), 'script.js'))
 		.pipe(plumber({ errorHandler: reportError }))
-		.pipe(sourcemaps.init())
-		.pipe(babel({
-			presets: ['env', 'stage-1'].map(function(v) {
-				return require.resolve('babel-preset-' + v)
-			}),
+		.pipe(webpackStream(webpackConfig, webpack, function(error, stats) {
+			var time = stats.toJson().time
+			console.log('Built in ' + time + 'ms.')
 		}))
-		.pipe(uglify())
-		.pipe(sourcemaps.write())
 		.pipe(rename('dist.js'))
 		.pipe(gulp.dest('.'))
 		.pipe(bs.reload({ stream: true }))
