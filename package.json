@@ -1,6 +1,6 @@
 {
   "name": "blockup",
-  "version": "2.2.6",
+  "version": "2.2.7",
   "description": "bl.ocks helper / generator",
   "main": "src/index.js",
   "bin": {
