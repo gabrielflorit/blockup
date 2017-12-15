@@ -41,6 +41,10 @@ Yes! You can use the built-in command `blockup publish` for most use cases. If y
 
 ` npm install -g blockup`
 
+## ugh there's an error
+
+Great! Add your error to [https://github.com/gabrielflorit/blockup/issues](https://github.com/gabrielflorit/blockup/issues) so we can improve this tiny tool.
+
 ## related
 
 - https://github.com/1wheel/gist-snap: snapshot thumbnails for [bl.ocks.org](http://bl.ocks.org/)
