@@ -39,7 +39,7 @@ gulp.task('default', ['watch', 'serve'])
 gulp.task('watch', function() {
 
 	gulp.watch('index.html', { cwd: process.cwd() }, bs.reload)
-	gulp.watch('*.js', { cwd: process.cwd() }, ['script'])
+	gulp.watch(['*.js', '!dist.js'], { cwd: process.cwd() }, ['script'])
 	gulp.watch('style.styl', { cwd: process.cwd() }, ['stylus'])
 
 })
