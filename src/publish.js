@@ -113,7 +113,7 @@ function gistup(title, resolve, reject) {
 		}
 
 		// extract the hash from the standard error message and use it to create the blocks URL
-		const gistHash = stderr.match(/To git@gist.github.com:([a-z0-9]+).git/)[1]
+		const gistHash = stderr.match(/To gist\.github\.com:([a-z0-9]+)\.git/)[1]
 		if (gistHash) {
 			const blockUrl = `https://bl.ocks.org/${gistHash}`;
 			console.log(chalk.bold('\nBlock published! You can view it at', chalk.bold.blue(blockUrl)));
