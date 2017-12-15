@@ -17,6 +17,15 @@ Scaffold and serve html, specifically focused on [bl.ocks](https://bl.ocks.org/)
 
 That's it for now. It probably won't grow beyond this. But if you have an idea, [I'd like to hear it](https://github.com/gabrielflorit/blockup/issues)!
 
+## now with module imports!
+
+- Stop dumping all your code in `script.js`! - now you can do this in `blockup`:
+
+```javascript
+import draw from './draw.js'
+...
+```
+
 ## usage
 
 ```sh
