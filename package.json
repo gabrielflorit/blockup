@@ -43,5 +43,10 @@
     "webpack": "^2.6.1",
     "webpack-stream": "^3.2.0",
     "yargs": "^5.0.0"
+  },
+  "standard": {
+    "globals": [
+      "d3"
+    ]
   }
 }
