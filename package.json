@@ -40,8 +40,8 @@
     "gulp-stylus": "^2.5.0",
     "gulp-util": "^3.0.7",
     "inquirer": "^1.2.2",
-    "webpack": "^2.6.1",
-    "webpack-stream": "^3.2.0",
+    "webpack": "^5.75.0",
+    "webpack-stream": "^7.0.0",
     "yargs": "^5.0.0"
   },
   "standard": {
